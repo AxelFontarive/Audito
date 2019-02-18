@@ -1,4 +1,3 @@
-Salut*
-hjcfbgdkjfhejksfhzegbhfh
+# DEV BRANCH
 
-Ceci est un fichier README
+*Tous les commits passent par ici avant d'être push sur* **MASTER**.
