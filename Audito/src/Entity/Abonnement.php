@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +27,16 @@ class Abonnement
      * @ORM\Column(type="integer")
      */
     private $TicketsRestants;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Spectateur", inversedBy="Abonnements")
+     */
+    private $Spectateurs;
+
+    public function __construct()
+    {
+        $this->Spectateurs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -51,6 +63,32 @@ class Abonnement
     public function setTicketsRestants(int $TicketsRestants): self
     {
         $this->TicketsRestants = $TicketsRestants;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Spectateur[]
+     */
+    public function getSpectateurs(): Collection
+    {
+        return $this->Spectateurs;
+    }
+
+    public function addSpectateur(Spectateur $spectateur): self
+    {
+        if (!$this->Spectateurs->contains($spectateur)) {
+            $this->Spectateurs[] = $spectateur;
+        }
+
+        return $this;
+    }
+
+    public function removeSpectateur(Spectateur $spectateur): self
+    {
+        if ($this->Spectateurs->contains($spectateur)) {
+            $this->Spectateurs->removeElement($spectateur);
+        }
 
         return $this;
     }

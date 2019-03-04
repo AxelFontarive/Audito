@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,16 @@ class Spectacle
      * @ORM\ManyToOne(targetEntity="App\Entity\TypeSpectacle")
      */
     private $TypeSpectacle;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Representation", mappedBy="Spectacle")
+     */
+    private $Representations;
+
+    public function __construct()
+    {
+        $this->Representations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -68,6 +80,37 @@ class Spectacle
     public function setTypeSpectacle(?TypeSpectacle $TypeSpectacle): self
     {
         $this->TypeSpectacle = $TypeSpectacle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Representation[]
+     */
+    public function getRepresentations(): Collection
+    {
+        return $this->Representations;
+    }
+
+    public function addRepresentation(Representation $representation): self
+    {
+        if (!$this->Representations->contains($representation)) {
+            $this->Representations[] = $representation;
+            $representation->setSpectacle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRepresentation(Representation $representation): self
+    {
+        if ($this->Representations->contains($representation)) {
+            $this->Representations->removeElement($representation);
+            // set the owning side to null (unless already changed)
+            if ($representation->getSpectacle() === $this) {
+                $representation->setSpectacle(null);
+            }
+        }
 
         return $this;
     }

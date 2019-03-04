@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,22 @@ class Representation
      * @ORM\Column(type="integer")
      */
     private $Duree;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Billet", mappedBy="Representation")
+     */
+    private $Billets;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Spectacle", inversedBy="Representations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Spectacle;
+
+    public function __construct()
+    {
+        $this->Billets = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -68,6 +86,49 @@ class Representation
     public function setDuree(int $Duree): self
     {
         $this->Duree = $Duree;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Billet[]
+     */
+    public function getBillets(): Collection
+    {
+        return $this->Billets;
+    }
+
+    public function addBillet(Billet $billet): self
+    {
+        if (!$this->Billets->contains($billet)) {
+            $this->Billets[] = $billet;
+            $billet->setRepresentation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBillet(Billet $billet): self
+    {
+        if ($this->Billets->contains($billet)) {
+            $this->Billets->removeElement($billet);
+            // set the owning side to null (unless already changed)
+            if ($billet->getRepresentation() === $this) {
+                $billet->setRepresentation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSpectacle(): ?Spectacle
+    {
+        return $this->Spectacle;
+    }
+
+    public function setSpectacle(?Spectacle $Spectacle): self
+    {
+        $this->Spectacle = $Spectacle;
 
         return $this;
     }
