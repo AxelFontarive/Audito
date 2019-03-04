@@ -26,6 +26,11 @@ class Spectacle
      */
     private $ModulationScene;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TypeSpectacle")
+     */
+    private $TypeSpectacle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Spectacle
     public function setModulationScene(bool $ModulationScene): self
     {
         $this->ModulationScene = $ModulationScene;
+
+        return $this;
+    }
+
+    public function getTypeSpectacle(): ?TypeSpectacle
+    {
+        return $this->TypeSpectacle;
+    }
+
+    public function setTypeSpectacle(?TypeSpectacle $TypeSpectacle): self
+    {
+        $this->TypeSpectacle = $TypeSpectacle;
 
         return $this;
     }

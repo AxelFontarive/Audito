@@ -21,6 +21,16 @@ class TypeSpectacle
      */
     private $LibelleType;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Spectacle")
+     */
+    private $Spectacles;
+
+    public function __construct()
+    {
+        $this->Spectacles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
