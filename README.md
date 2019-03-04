@@ -1,4 +1,4 @@
-Salut*
-hjcfbgdkjfhejksfhzegbhfh
+# MASTER BRANCH
 
-Ceci est un fichier README
+*Merci de ne rien commit ici sans validation.*
+Push autorisés sur la branche **dev**.
