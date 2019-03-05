@@ -1,0 +1,21 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font: 18px/1.5 sans-serif;
+}
+
+h1 {
+    font-size: 32pt;
+    text-align: center;
+    border-bottom: solid 3px black;
+    margin-bottom: 45px;
+}
+
+form {
+    display: block;
+    text-align: center;
+}
+
+input {
+    margin-bottom: 5px;
+}

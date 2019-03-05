@@ -16,8 +16,9 @@ class EventListController extends AbstractController
 
     public function all()
     {
+
         return $this->render('event_list/index.html.twig', [
-            'slug' => "all",
+            'slug' => "all", 
         ]);
     }
 }
