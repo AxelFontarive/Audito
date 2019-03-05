@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Amphithéâtre Audito{% endblock %}
 
 {% block body %}
-<style>
-    .html { margin:0px; font: 18px/1.5 sans-serif; }
-    .header h1 { text-align:center; border-bottom: solid 3px black; }
-</style>
 
-<div class="html">
-    <div class="header">
-        <h1>Audito</h1>
-    </div>
+<link rel="stylesheet" type="text/css" href="css/homepage.css">
 
-    <div class="body">
-        <p>[Remplacer ce txt par quelque chose de plus utile]</p>
-    </div>
-
+<div class="header">
+    <h1>Audito</h1>
 </div>
+
+<section class="event-types">
+    <h2>Trouver un événement</h2>
+    <div class="one-event"><a href="/events/spectacles">SPECTACLES</a></div>
+    <div class="one-event"><a href="/events/cinema">CINÉMA</a></div>
+    <div class="one-event"><a href="/events/theatre">THÉÂTRE</a></div>
+    <div class="one-event"><a href="/events/autre">UN AUTRE TRUC</a></div>
+</scetion>
+
 {% endblock %}

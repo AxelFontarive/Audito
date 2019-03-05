@@ -5,3 +5,11 @@
 home:
     path: /
     controller: App\Controller\HomeController::index
+
+eventlist:
+    path: /events/{slug}
+    controller: App\Controller\EventListController::list
+
+allevents:
+    path: /events/
+    controller: App\Controller\EventListController::all
