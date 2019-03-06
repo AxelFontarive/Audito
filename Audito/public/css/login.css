@@ -19,3 +19,28 @@ form {
 input {
     margin-bottom: 5px;
 }
+
+.alert {
+    font-size: 12pt;
+    font-style: italic;
+    color:red;
+}
+
+.register {
+    margin-top: 20px;
+}
+
+.register-btn {
+    padding: 2px 7px 2px 7px;
+    border: solid 2px black;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}

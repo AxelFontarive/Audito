@@ -7,9 +7,6 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 
 <form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
     <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
 
@@ -36,5 +33,14 @@
     <button class="btn btn-lg btn-primary" type="submit">
         Valider
     </button>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="register">
+        <p>Pas encore de compte ? <a class="register-btn" href="/register">S'enregistrer</a></p>
+    </div>
+
 </form>
 {% endblock %}

@@ -34,6 +34,14 @@
     background-color: #aaaaaa;
 }
 
+.btn {
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: solid 2px black;
+}
+
 #or {
     margin-top: 5px;
     margin-bottom: 5px;
