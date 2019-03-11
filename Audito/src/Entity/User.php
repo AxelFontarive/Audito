@@ -18,10 +18,11 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-    // gdyuse
+    
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
+
     private $username;
 
     /**
