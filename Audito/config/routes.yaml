@@ -26,6 +26,10 @@ allevents:
     path: /events
     controller: App\Controller\EventListController::all
 
-spectacle_list:
-    path: /spectacle/add
+spectacle_adminlist:
+    path: /spectacle/admin/list
+    controller: App\Controller\SpectacleController::adminList
+
+spectacle_adminadd:
+    path: /spectacle/admin/add
     controller: App\Controller\SpectacleController::add

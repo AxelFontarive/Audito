@@ -43,6 +43,11 @@ class Spectacle
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="string", length=512, nullable=true)
+     */
+    private $description;
+
     public function __construct()
     {
         $this->Representations = new ArrayCollection();
@@ -128,6 +133,18 @@ class Spectacle
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
