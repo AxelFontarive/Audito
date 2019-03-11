@@ -23,5 +23,9 @@ eventlist:
     controller: App\Controller\EventListController::list
 
 allevents:
-    path: /events/
+    path: /events
     controller: App\Controller\EventListController::all
+
+spectacle_list:
+    path: /spectacle/add
+    controller: App\Controller\SpectacleController::add

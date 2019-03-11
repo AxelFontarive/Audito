@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font: 18px/1.5 sans-serif;
+}
+
+.header {
+    font-weight: bold;
+    text-align: center;
+    border-bottom: solid 3px black;
+    margin-bottom: 5px;
+}
+
+.header h1 {
+    font-size: 32pt;
+}
+
+.error {
+    color: red;
+    padding: 10px;
+}
+
+.error h1 {
+    font-size: 20pt;
+}
+
+.error h3 {
+    font-style: italic;
+}

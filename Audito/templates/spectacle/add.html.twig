@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un spectacle{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="/css/sampleform.css">
+
+<section class="header">
+    <h1>Audito</h1>
+</section>
+
+<div>
+    {% if auth %}
+        <h1>Ajouter un form d'ajout ici.</h1>
+    {% else %}
+        <div class="error">
+            <h1>❌ Accès refusé.</h1>
+            <h3>Les droits d'administrateur sont requis pour accéder à cette page.</h3>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
