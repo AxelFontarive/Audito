@@ -12,21 +12,20 @@
 </section>
 
 <div>
-    {% if admin %}
-        <div class="sp-list">
-            <h1>Liste des spectacles ({{ len }} trouvés)</h1>
-            {% if len > 0 %}
-                {# Display some info #}
-            {% else %}
-                <h3 class="error">Il n'y a rien à afficher ici.</h3>
-            {% endif %}
-        </div>
-    {% else %}
-        <div class="error">
-            <h1>❌ Accès refusé.</h1>
-            <h3>Les droits d'administrateur sont requis pour accéder à cette page.</h3>
-        </div>
-    {% endif %}
+    <div class="sp-list">
+        <h1>Liste des spectacles ({{ len }} trouvés)</h1>
+        {% if len > 0 %}
+            {% for s in sp %}
+                <div class="one-spec">
+                    <img src="{{ s.image }}"/>
+                    <h2>{{ s.nomSpectacle }}</h2>
+                    <p>{{ s.typeSpectacle.libelleType }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3 class="error">Il n'y a rien à afficher ici.</h3>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}

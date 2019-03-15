@@ -12,7 +12,43 @@
 </section>
 
 <div>
-    <h1>Add form </h1>
+    <form action="{{ url('spectacle_adminadd', {xpr:"test form redirect"}) }}" method="post">
+        <input type="hidden" name="token" value="{{ csrf_token('spec-token') }}"/>
+
+        <div>
+            <label>Nom du spectacle : </label>
+            <input type="text" name="sp_name"/>
+        </div>
+
+        <div>
+            <p>Description : </p>
+            <textarea name="sp_desc" rows="3" columns="50" maxlength="512"></textarea>
+        </div>
+
+        <div>
+            <label>Type de spectacle : </label>
+            <select name="sp_type">
+                <option value="none">Choisir...</option>
+                {% for sp in tsp %}
+                    <option value="{{ sp.id }}">{{ sp.libelletype }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label>URL de l'affiche : </label>
+            <input type="text" name="sp_url"/><br/>
+        </div>
+
+        <div>
+            <input type="checkbox" name="sp_scenemod"/>
+            <label>Modulation de scène</label>
+        </div>
+
+        <div>
+            <input type="submit"/>
+        </div>
+    </form>
 </div>
 
 {% endblock %}
